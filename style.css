@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * .5);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(to top left, rgb(49, 50, 53) 0%, rgb(25, 25, 25) 93%);
+}
+
+.board {
+    display: grid;
+    width: 320px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 10px; 
+}
+
+.cell,
+.cell-hover {
+    position: relative;
+    background-color: rgb(57, 58, 62);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cell-hover {
+    transition: background-color .3s;
+}
+
+.cell i {
+    position: absolute;
+    font-size: var(--mark-size);
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fa-o {
+    color: rgb(6, 152, 163);
+} 
+
+.fa-x {
+    color: rgb(161, 46, 123);
+} 
+
+.winning-message {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .75);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.result {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    background: rgb(1, 1, 9);
+    background: linear-gradient(90deg, rgb(154, 18, 108) 0%, rgb(200, 139, 223) 49%, rgb(7, 171, 168) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+button {
+    font-size: 1.6rem;
+    padding: .8rem;
+    background: none;
+    color: azure;
+    border: 1px solid azure;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+button:hover,
+.cell-hover:hover {
+    background-color: rgb(48, 50, 52);
+}
+
+.winning-message-animation {
+    animation: show-winning-message .5s;
+}
+
+@keyframes show-winning-message {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
