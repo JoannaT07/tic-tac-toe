@@ -29,7 +29,7 @@ test.each([
         FIELD.CIRCLE, FIELD.CIRCLE, FIELD.CROSS,
         FIELD.CROSS, FIELD.CIRCLE, FIELD.CROSS
     ], undefined]
-])("Should $preparedFields expecting $winner", (preparedFields, winner) => {
+])("Should %p have winner %p", (preparedFields, winner) => {
     //given
     console.log(preparedFields)
     setFields(preparedFields)
